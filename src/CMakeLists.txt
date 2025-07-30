@@ -8,7 +8,7 @@ qt_add_qml_module(${EXEC_NAME}
     URI ${EXEC_NAME}
     VERSION 1.0
     QML_FILES
-        Main.qml
+        ui/Main.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
