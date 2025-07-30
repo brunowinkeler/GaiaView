@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.loadFromModule("GaiaView", "Main");
+    engine.loadFromModule("GaiaViewApp", "Main");
 
     return app.exec();
 }
