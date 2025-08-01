@@ -4,11 +4,21 @@ qt_add_executable(${EXEC_NAME}
     main.cpp
 )
 
+file(GLOB_RECURSE QML_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "../qml/*.qml")
+
+foreach(qml_file IN LISTS QML_FILES)
+    get_filename_component(qml_name ${qml_file} NAME)
+    set_source_files_properties(
+        ${qml_file}
+        PROPERTIES QT_RESOURCE_ALIAS ${qml_name}
+    )
+endforeach()
+
 qt_add_qml_module(${EXEC_NAME}
     URI ${EXEC_NAME}
     VERSION 1.0
     QML_FILES
-        Main.qml
+        ${QML_FILES}
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
