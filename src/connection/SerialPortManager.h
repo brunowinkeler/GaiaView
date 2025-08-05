@@ -4,6 +4,7 @@
 #include <QStringList>
 #include <QSerialPort>
 #include <QSerialPortInfo>
+#include <QDebug>
 
 class SerialPortManager : public QObject
 {
@@ -16,6 +17,7 @@ public:
     Q_INVOKABLE void refreshPorts();
     Q_INVOKABLE bool openPort(const QString &portName, int baudRate);
     Q_INVOKABLE void closePort();
+
 
 signals:
     void portsChanged();
