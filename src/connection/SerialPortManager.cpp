@@ -1,9 +1,9 @@
-#include "SerialPortManager.h"
+#include "connection/SerialPortManager.h"
 
 SerialPortManager::SerialPortManager(QObject* parent)
     : QObject(parent)
 {
-    serial.setPortName("/dev/ttys007");
+    serial.setPortName("COM2");
     serial.setBaudRate(QSerialPort::Baud115200);
     if (serial.open(QIODevice::ReadWrite)) {
         qDebug() << "Opened virtual port!";

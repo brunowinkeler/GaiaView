@@ -18,7 +18,6 @@ public:
     Q_INVOKABLE bool openPort(const QString &portName, int baudRate);
     Q_INVOKABLE void closePort();
 
-
 signals:
     void portsChanged();
     void portOpened(bool success, QString error);

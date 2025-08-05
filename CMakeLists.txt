@@ -25,6 +25,8 @@ qt_add_qml_module(${EXEC_NAME}
     QML_FILES
         qml/Main.qml
         qml/SerialPortDialog.qml
+    SOURCES
+        include/connection/SerialPortManager.h
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -36,6 +38,12 @@ set_target_properties(${EXEC_NAME} PROPERTIES
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
+)
+
+message(STATUS PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR})
+
+target_include_directories(${EXEC_NAME} PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
 )
 
 target_link_libraries(${EXEC_NAME} PRIVATE
