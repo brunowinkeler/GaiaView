@@ -1,8 +1,13 @@
 qt_standard_project_setup(REQUIRES 6.8)
 
+find_package(Qt6 REQUIRED COMPONENTS Core)
+
 qt_add_executable(${EXEC_NAME}
     main.cpp
+    connection/SerialPortManager.cpp
 )
+
+target_link_libraries(GaiaViewApp PRIVATE Qt6::Core)
 
 file(GLOB_RECURSE QML_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "../qml/*.qml")
 
@@ -19,6 +24,7 @@ qt_add_qml_module(${EXEC_NAME}
     VERSION 1.0
     QML_FILES
         ${QML_FILES}
+        SOURCES connection/SerialPortManager.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -33,7 +39,10 @@ set_target_properties(${EXEC_NAME} PROPERTIES
 )
 
 target_link_libraries(${EXEC_NAME}
-    PRIVATE Qt6::Quick
+    PRIVATE
+        Qt6::Core
+        Qt6::Quick
+        Qt6::SerialPort
 )
 
 include(GNUInstallDirs)

@@ -1,0 +1,30 @@
+#include "SerialPortManager.h"
+
+SerialPortManager::SerialPortManager(QObject* parent)
+    : QObject(parent)
+{
+}
+
+QStringList SerialPortManager::availablePorts() const {
+    QStringList list;
+    for (const QSerialPortInfo &info : QSerialPortInfo::availablePorts()) {
+        list << info.portName();
+    }
+    return list;
+}
+
+void SerialPortManager::refreshPorts() {
+    emit portsChanged();
+}
+
+bool SerialPortManager::openPort(const QString& portName, int baudRate) {
+    serial.setPortName(portName);
+    serial.setBaudRate(baudRate);
+    bool opened = serial.open(QIODevice::ReadWrite);
+    emit portOpened(opened, opened ? "" : serial.errorString());
+    return opened;
+}
+
+void SerialPortManager::closePort() {
+    serial.close();
+}

@@ -1,18 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "connection/SerialPortManager.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
+    qmlRegisterType<SerialPortManager>("GaiaView", 1, 0, "SerialPortManager");
 
-    QObject::connect(
-        &engine,
-        &QQmlApplicationEngine::objectCreationFailed,
-        &app,
-        []() { QCoreApplication::exit(-1); },
-        Qt::QueuedConnection);
+    QQmlApplicationEngine engine;
     engine.loadFromModule("GaiaViewApp", "Main");
 
     return app.exec();
