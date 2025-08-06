@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "connection/SerialPortManager.h"
+#include "connection/serialportmanager.h"
 
 int main(int argc, char *argv[])
 {

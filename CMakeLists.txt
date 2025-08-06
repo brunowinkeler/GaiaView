@@ -16,7 +16,7 @@ qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(${EXEC_NAME}
     src/main.cpp
-    src/connection/SerialPortManager.cpp
+    src/connection/serialportmanager.cpp
 )
 
 qt_add_qml_module(${EXEC_NAME}
@@ -26,7 +26,7 @@ qt_add_qml_module(${EXEC_NAME}
         qml/Main.qml
         qml/SerialPortDialog.qml
     SOURCES
-        include/connection/SerialPortManager.h
+        include/connection/serialportmanager.h
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

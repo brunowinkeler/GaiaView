@@ -1,4 +1,4 @@
-#include "connection/SerialPortManager.h"
+#include "connection/serialportmanager.h"
 
 SerialPortManager::SerialPortManager(QObject* parent)
     : QObject(parent)
