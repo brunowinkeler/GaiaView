@@ -24,7 +24,7 @@ qt_add_qml_module(${EXEC_NAME}
     VERSION 1.0
     QML_FILES
         qml/Main.qml
-        qml/SerialPortDialog.qml
+        qml/SerialPortWindow.qml
     SOURCES
         include/connection/serialportmanager.h
 )
@@ -39,8 +39,6 @@ set_target_properties(${EXEC_NAME} PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
-
-message(STATUS PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR})
 
 target_include_directories(${EXEC_NAME} PRIVATE
         ${PROJECT_SOURCE_DIR}/include
