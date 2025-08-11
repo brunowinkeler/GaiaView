@@ -15,8 +15,8 @@ find_package(Qt6 REQUIRED COMPONENTS
 qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(${EXEC_NAME}
-    ${PROJECT_SOURCE_DIR}/src/main.cpp
-    ${PROJECT_SOURCE_DIR}/src/connection/serialportmanager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/connection/serialportmanager.cpp
 )
 
 qt_add_qml_module(${EXEC_NAME}
